@@ -1,8 +1,7 @@
-{ user, hostname, ... }:
+{ pkgs, user, hostname, ... }:
 
 {
   imports = [
-    ./core.nix
     ./programs.nix
   ];
 
@@ -13,6 +12,7 @@
     shellAliases = {
       nix-update-all-pkgs = "nix-channel --update && darwin-rebuild switch --flake ~/.config/nix/#${hostname}";
     };
+    packages = pkgs.callPackage ./packages.nix {};
   };
 
   programs.home-manager.enable = true;
