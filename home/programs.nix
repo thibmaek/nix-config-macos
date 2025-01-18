@@ -16,8 +16,8 @@ let
   zsh-autosuggestions = pkgs.fetchFromGitHub {
     owner = "zsh-users";
     repo = "zsh-autosuggestions";
-    rev = "0.7.1";
-    sha256 = "sha256-iJdWopZwHpSyYl5/FQXEW7gl/SrKaYDEtTH9cGP7iPo=";
+    rev = "v0.7.1";
+    sha256 = "sha256-vpTyYq9ZgfgdDsWzjxVAE7FZH4MALMNZIFyEOBLm5Qo=";
   };
   zsh-customs = pkgs.stdenv.mkDerivation {
     name = "zsh-customs";
