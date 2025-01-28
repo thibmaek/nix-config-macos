@@ -38,6 +38,8 @@ in {
       enableZshIntegration = true;
     };
 
+    htop.enable = true;
+
     neovim = {
       enable = true;
       defaultEditor = true;
