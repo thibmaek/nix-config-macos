@@ -10,6 +10,8 @@ with pkgs; [
 	curl
 	duf
   fzf
+	gh
+	glow
 	jq
 	nano
 	ncdu

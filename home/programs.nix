@@ -40,6 +40,13 @@ in {
 
     htop.enable = true;
 
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+			nix-direnv.enable = true;
+    };
+
     neovim = {
       enable = true;
       defaultEditor = true;
@@ -108,9 +115,6 @@ in {
           autoload -Uz compinit
           compinit
         fi
-
-        source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-        source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 
         zstyle ':omz:update' mode auto
 
