@@ -19,6 +19,12 @@ let
     rev = "v0.7.1";
     sha256 = "sha256-vpTyYq9ZgfgdDsWzjxVAE7FZH4MALMNZIFyEOBLm5Qo=";
   };
+  zsh-ollama-completions = pkgs.fetchFromGitHub {
+    owner = "ocodo";
+    repo = "ollama_zsh_completion";
+    rev = "main";
+    sha256 = "sha256-s+y006hfBqEEOmfB0OO3CrpbeLBD5Y6TH3NkRjrcbuw=";
+  };
   zsh-customs = pkgs.stdenv.mkDerivation {
     name = "zsh-customs";
     phases = [ "buildPhase" ];
@@ -27,6 +33,7 @@ let
       cp -r ${fzf-tab} $out/plugins/fzf-tab
       cp -r ${zsh-syntax-highlighting} $out/plugins/zsh-syntax-highlighting
       cp -r ${zsh-autosuggestions} $out/plugins/zsh-autosuggestions
+      cp -r ${zsh-ollama-completions} $out/plugins/ollama
     '';
   };
 
@@ -134,6 +141,7 @@ in {
           "fzf-tab"
           "zsh-autosuggestions"
           "zsh-syntax-highlighting"
+          "ollama"
         ];
         custom = "${zsh-customs}";
       };
