@@ -54,6 +54,14 @@ in {
 			nix-direnv.enable = true;
     };
 
+		yt-dlp = {
+			enable = true;
+			# https://github.com/yt-dlp/yt-dlp#configuration
+			settings = {
+				update = true;
+			};
+		};
+
     neovim = {
       enable = true;
       defaultEditor = true;
