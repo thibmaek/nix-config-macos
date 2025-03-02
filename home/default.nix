@@ -1,4 +1,4 @@
-{ pkgs, user, hostname, ... }:
+{ pkgs, user, ... }:
 
 {
   imports = [
@@ -10,7 +10,9 @@
     homeDirectory = "/Users/${user}";
     stateVersion = "24.11";
     shellAliases = {
-      nix-update-all-pkgs = "nix-channel --update && darwin-rebuild switch --flake ~/.config/nix/#${hostname}";
+      nix-update-all-pkgs = "nix-channel --update && darwin-rebuild switch --flake ~/.config/nix";
+      dl = "cd ~/Downloads";
+      d = "cd ~/Desktop";
     };
     packages = pkgs.callPackage ./packages.nix {};
   };
