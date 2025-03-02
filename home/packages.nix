@@ -12,6 +12,7 @@ with pkgs; [
   fzf
 	gh
 	glow
+	gnumake
 	jq
 	nano
 	ncdu
