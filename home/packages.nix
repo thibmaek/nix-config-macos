@@ -1,23 +1,33 @@
 { pkgs }:
 
 with pkgs; [
-	bat
 	binwalk
 	btop
 	coreutils
 	croc
-  ctop
+	ctop
 	curl
+	d2
 	duf
-  fzf
+	ffmpeg
+	fzf
 	gh
+	glances
 	glow
 	gnumake
 	jq
+	lazydocker
+	lazygit
 	nano
 	ncdu
+	neofetch
+	netcat
+	nmap
 	rsync
 	screen
+	shellcheck
+	shfmt
+	ssh-copy-id
 	tmux
 	tree
 	wget
