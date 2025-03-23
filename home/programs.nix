@@ -39,12 +39,26 @@ let
 
 in {
   programs = {
+    git = import ./programs/git.nix;
+    starship = import ./programs/starship.nix;
+
     fzf = {
       enable = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
     };
 
+    bat = {
+      enable = true;
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batman
+        batpipe
+        prettybat
+      ];
+    };
+
+    yt-dlp.enable = true;
     htop.enable = true;
 
     direnv = {
@@ -53,14 +67,6 @@ in {
       enableZshIntegration = true;
 			nix-direnv.enable = true;
     };
-
-		yt-dlp = {
-			enable = true;
-			# https://github.com/yt-dlp/yt-dlp#configuration
-			settings = {
-				update = true;
-			};
-		};
 
     neovim = {
       enable = true;
@@ -86,25 +92,6 @@ in {
       enableZshIntegration = true;
       enableBashIntegration = true;
       options = ["--cmd=cd"];
-    };
-
-    starship = {
-      enable = true;
-      enableBashIntegration = false;
-      enableZshIntegration = true;
-      settings = {
-        character.error_symbol = "✗";
-        hostname.format = "[$hostname]($style) in ";
-        os.disabled = true;
-        container.disabled = true;
-        username.disabled = true;
-        custom.docker = {
-          description = "Shows the Docker symbol if the current directory has Dockerfile or docker-compose files";
-          files = ["Dockerfile" "docker-compose.yaml" "compose.yaml"];
-          when = "command -v docker &> /dev/null; exit (echo $?);";
-          command = "echo 🐳";
-        };
-      };
     };
 
     command-not-found.enable = true;
