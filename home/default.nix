@@ -13,6 +13,7 @@
       nix-update-all-pkgs = "nix-channel --update && darwin-rebuild switch --flake ~/.config/nix";
       dl = "cd ~/Downloads";
       d = "cd ~/Desktop";
+      n = "nvim";
     };
     packages = pkgs.callPackage ./packages.nix {};
   };
