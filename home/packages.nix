@@ -25,6 +25,7 @@ with pkgs;
   neofetch
   netcat
   nmap
+  nodejs_24
   rsync
   screen
   shellcheck

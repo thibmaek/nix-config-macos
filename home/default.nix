@@ -15,7 +15,10 @@
       d = "cd ~/Desktop";
       n = "nvim";
     };
-    packages = pkgs.callPackage ./packages.nix {};
+    packages = pkgs.callPackage ./packages.nix { };
+    sessionPath = [
+      "/Users/${user}/.npm-global/bin" # You will need to set this by running `npm config set prefix ~/.npm-global`
+    ];
   };
 
   programs.home-manager.enable = true;
