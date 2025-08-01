@@ -20,6 +20,7 @@
   environment.systemPackages = with pkgs; [
     git
     nixfmt-rfc-style
+    nixfmt-tree
     nixd
     nil
   ];

@@ -7,3 +7,6 @@ update:
 	nix flake update
 	nix-channel --update
 	darwin-rebuild switch --flake ~/.config/nix
+
+format:
+	treefmt
