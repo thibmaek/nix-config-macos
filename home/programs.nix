@@ -23,7 +23,7 @@ let
     owner = "ocodo";
     repo = "ollama_zsh_completion";
     rev = "main";
-    sha256 = "sha256-s+y006hfBqEEOmfB0OO3CrpbeLBD5Y6TH3NkRjrcbuw=";
+    sha256 = "sha256-HjKVLDmJyCXwmAmYaHAuCcy8rC9274e5UaIt4acnq4Q=";
   };
   zsh-customs = pkgs.stdenv.mkDerivation {
     name = "zsh-customs";
@@ -37,7 +37,8 @@ let
     '';
   };
 
-in {
+in
+{
   programs = {
     git = import ./programs/git.nix;
     starship = import ./programs/starship.nix;
@@ -65,7 +66,7 @@ in {
       enable = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
-			nix-direnv.enable = true;
+      nix-direnv.enable = true;
     };
 
     neovim = {
@@ -91,7 +92,7 @@ in {
       enable = true;
       enableZshIntegration = true;
       enableBashIntegration = true;
-      options = ["--cmd=cd"];
+      options = [ "--cmd=cd" ];
     };
 
     command-not-found.enable = true;
@@ -111,7 +112,7 @@ in {
         nxi = "nix flake new -t github:nix-community/nix-direnv .";
       };
 
-      initExtra = ''
+      initContent = ''
         if type brew &>/dev/null; then
           FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
           autoload -Uz compinit

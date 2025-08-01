@@ -9,7 +9,7 @@
 #
 ###################################################################################
 {
-   users.users."${user}" = {
+  users.users."${user}" = {
     home = "/Users/${user}";
     description = user;
   };
@@ -21,9 +21,10 @@
 
   system = {
     stateVersion = 5;
+    primaryUser = "${user}";
 
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
-    activationScripts.postUserActivation.text = ''
+    activationScripts.text = ''
       # activateSettings -u will reload the settings from the database and apply them to the current session,
       # so we do not need to logout and login again to make the changes take effect.
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
@@ -35,7 +36,7 @@
       smb.NetBIOSName = hostname;
 
       NSGlobalDomain = {
-        AppleEnableMouseSwipeNavigateWithScrolls =  false;
+        AppleEnableMouseSwipeNavigateWithScrolls = false;
         AppleEnableSwipeNavigateWithScrolls = false;
         AppleInterfaceStyleSwitchesAutomatically = true;
         ApplePressAndHoldEnabled = false;
@@ -52,5 +53,5 @@
     };
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 }
