@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := update
 
 build:
-	darwin-rebuild switch --flake ~/.config/nix
+	sudo darwin-rebuild switch --flake ~/.config/nix
 
 update:
 	nix flake update

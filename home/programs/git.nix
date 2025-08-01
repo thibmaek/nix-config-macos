@@ -31,7 +31,7 @@
     update = "push origin HEAD";
   };
 
-  ignores = [".DS_Store"];
+  ignores = [ ".DS_Store" ];
 
   signing = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFQi1NuIqPAFqzV5Nb3o9k0hjEIJUe0YERrQK1z4ywzm";

@@ -10,7 +10,11 @@
     username.disabled = true;
     custom.docker = {
       description = "Shows the Docker symbol if the current directory has Dockerfile or docker-compose files";
-      files = ["Dockerfile" "docker-compose.yaml" "compose.yaml"];
+      files = [
+        "Dockerfile"
+        "docker-compose.yaml"
+        "compose.yaml"
+      ];
       when = "command -v docker &> /dev/null; exit (echo $?);";
       command = "echo 🐳";
     };
