@@ -110,6 +110,7 @@ in
 
       shellAliases = {
         nxi = "nix flake new -t github:nix-community/nix-direnv .";
+        fzgrep = "grep --line-buffered --color=never -r \"\" *| fzf";
       };
 
       initContent = ''
