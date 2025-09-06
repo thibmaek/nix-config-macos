@@ -6,7 +6,12 @@ build:
 update:
 	nix flake update
 	nix-channel --update
-	darwin-rebuild switch --flake ~/.config/nix
+	sudo darwin-rebuild switch --flake ~/.config/nix
 
 format:
 	treefmt
+
+clean:
+	nix-collect-garbage -d
+	nix store gc --verbose
+	nix-store optimise --verbose
