@@ -95,7 +95,8 @@ in
       options = [ "--cmd=cd" ];
     };
 
-    command-not-found.enable = true;
+    # Locally init'd via zshrc
+    command-not-found.enable = false;
 
     eza = {
       enable = true;
@@ -118,6 +119,11 @@ in
           FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
           autoload -Uz compinit
           compinit
+        fi
+
+        HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/command-not-found/handler.sh"
+        if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
+          source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER";
         fi
 
         zstyle ':omz:update' mode auto

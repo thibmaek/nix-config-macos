@@ -4,6 +4,7 @@ with pkgs;
 [
   binwalk
   btop
+	cfonts
   coreutils
   croc
   ctop
