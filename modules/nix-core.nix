@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   user,
   ...
 }:
@@ -20,12 +19,6 @@
   };
 
   # Auto upgrade nix package and the daemon service.
-  nix.enable = true;
+  nix.enable = false;
   nix.package = pkgs.nix;
-
-  nix.gc = {
-    automatic = lib.mkDefault true;
-    options = lib.mkDefault "--delete-older-than 7d";
-  };
-  nix.optimise.automatic = true;
 }
