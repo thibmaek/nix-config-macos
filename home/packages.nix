@@ -10,6 +10,7 @@ with pkgs;
   ctop
   curl
   d2
+	devenv
   duf
   ffmpeg
   fzf
