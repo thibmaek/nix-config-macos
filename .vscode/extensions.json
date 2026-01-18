@@ -1,0 +1,8 @@
+{
+  // Recommended VSCode extensions for working with Nix
+  "recommendations": [
+    "jnoortheen.nix-ide",
+    "ms-vscode.makefile-tools",
+    "tamasfe.even-better-toml",
+  ]
+}

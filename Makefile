@@ -3,9 +3,11 @@
 build:
 	sudo darwin-rebuild switch --flake ~/.config/nix
 
+check:
+	nix flake check
+
 update:
 	nix flake update
-	nix-channel --update
 	sudo darwin-rebuild switch --flake ~/.config/nix
 
 format:

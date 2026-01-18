@@ -4,13 +4,13 @@ with pkgs;
 [
   binwalk
   btop
-	cfonts
+  cfonts
   coreutils
   croc
   ctop
   curl
   d2
-	devenv
+  devenv
   duf
   ffmpeg
   fzf

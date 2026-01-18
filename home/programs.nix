@@ -1,42 +1,13 @@
 { pkgs, ... }:
 
 let
-  fzf-tab = pkgs.fetchFromGitHub {
-    owner = "Aloxaf";
-    repo = "fzf-tab";
-    rev = "v1.1.2";
-    sha256 = "sha256-Qv8zAiMtrr67CbLRrFjGaPzFZcOiMVEFLg1Z+N6VMhg=";
-  };
-  zsh-syntax-highlighting = pkgs.fetchFromGitHub {
-    owner = "zsh-users";
-    repo = "zsh-syntax-highlighting";
-    rev = "0.8.0";
-    sha256 = "sha256-iJdWopZwHpSyYl5/FQXEW7gl/SrKaYDEtTH9cGP7iPo=";
-  };
-  zsh-autosuggestions = pkgs.fetchFromGitHub {
-    owner = "zsh-users";
-    repo = "zsh-autosuggestions";
-    rev = "v0.7.1";
-    sha256 = "sha256-vpTyYq9ZgfgdDsWzjxVAE7FZH4MALMNZIFyEOBLm5Qo=";
-  };
+  # Ollama completions are not in nixpkgs, so we fetch them manually
   zsh-ollama-completions = pkgs.fetchFromGitHub {
     owner = "ocodo";
     repo = "ollama_zsh_completion";
     rev = "main";
     sha256 = "sha256-HjKVLDmJyCXwmAmYaHAuCcy8rC9274e5UaIt4acnq4Q=";
   };
-  zsh-customs = pkgs.stdenv.mkDerivation {
-    name = "zsh-customs";
-    phases = [ "buildPhase" ];
-    buildPhase = ''
-      mkdir -p $out/plugins
-      cp -r ${fzf-tab} $out/plugins/fzf-tab
-      cp -r ${zsh-syntax-highlighting} $out/plugins/zsh-syntax-highlighting
-      cp -r ${zsh-autosuggestions} $out/plugins/zsh-autosuggestions
-      cp -r ${zsh-ollama-completions} $out/plugins/ollama
-    '';
-  };
-
 in
 {
   programs = {
@@ -80,7 +51,6 @@ in
         set noexpandtab
         set smartindent
         set smarttab
-        set rtp+=/opt/homebrew/opt/fzf
 
         call plug#begin()
         Plug 'nanotee/zoxide.vim'
@@ -109,10 +79,29 @@ in
       enableCompletion = true;
       autocd = true;
 
-      shellAliases = {
-        nxi = "nix flake new -t github:nix-community/nix-direnv .";
-        fzgrep = "grep --line-buffered --color=never -r \"\" *| fzf";
-      };
+      # ZSH plugins managed via home-manager
+      plugins = [
+        {
+          name = "fzf-tab";
+          src = pkgs.zsh-fzf-tab;
+          file = "share/fzf-tab/fzf-tab.plugin.zsh";
+        }
+        {
+          name = "zsh-syntax-highlighting";
+          src = pkgs.zsh-syntax-highlighting;
+          file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+        }
+        {
+          name = "zsh-autosuggestions";
+          src = pkgs.zsh-autosuggestions;
+          file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
+        }
+        {
+          name = "ollama";
+          src = zsh-ollama-completions;
+          file = "ollama_zsh_completion.plugin.zsh";
+        }
+      ];
 
       initContent = ''
         if type brew &>/dev/null; then
@@ -141,12 +130,7 @@ in
           "git"
           "command-not-found"
           "eza"
-          "fzf-tab"
-          "zsh-autosuggestions"
-          "zsh-syntax-highlighting"
-          "ollama"
         ];
-        custom = "${zsh-customs}";
       };
     };
   };

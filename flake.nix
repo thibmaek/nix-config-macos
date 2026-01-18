@@ -29,7 +29,7 @@
     }:
     let
       system = "aarch64-darwin";
-      hostname = "Thibaults-Mac-Studio";
+      hostname = "Thib-Payflip";
       user = "thibmaek";
       specialArgs = inputs // {
         inherit user hostname;
@@ -43,6 +43,7 @@
           ./modules/pkgs.nix
           ./modules/programs.nix
           ./modules/system.nix
+          ./modules/homebrew.nix
 
           home-manager.darwinModules.home-manager
           {
