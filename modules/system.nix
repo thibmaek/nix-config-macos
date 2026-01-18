@@ -2,7 +2,7 @@
 
 ###################################################################################
 #
-#  macOS's System configuration
+#  Shared macOS system configuration across all machines
 #
 #  All the configuration options are documented here:
 #    https://daiderd.com/nix-darwin/manual/index.html#sec-options

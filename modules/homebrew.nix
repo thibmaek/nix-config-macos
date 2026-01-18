@@ -2,9 +2,8 @@
 
 ###################################################################################
 #
-#  Homebrew configuration for macOS
+#  Shared Homebrew configuration across all machines
 #
-#  Manages GUI applications and CLI tools that work better via Homebrew
 #  All the configuration options are documented here:
 #    https://daiderd.com/nix-darwin/manual/index.html#opt-homebrew.enable
 #
@@ -19,14 +18,7 @@
       upgrade = true;
     };
 
-    # CLI tools that work better via Homebrew
-    brews = [
-      # Add any Homebrew-only CLI tools here
-      # Most CLI tools should be in home/packages.nix instead
-      "ollama"
-    ];
-
-    # GUI macOS applications
+    # GUI macOS applications shared across all machines
     casks = [
       "1password"
       "cursor"
@@ -39,7 +31,6 @@
       "font-monaspace"
       "ghostty"
       "keka"
-      "logitech-options"
       "macwhisper"
       "notion"
       "obsidian"
@@ -52,7 +43,6 @@
       "syncthing-app"
       "tailscale-app"
       "whatsapp"
-      "xcodes-app"
     ];
   };
 }
