@@ -5,7 +5,6 @@ build:
 
 update:
 	nix flake update
-	nix-channel --update
 	sudo darwin-rebuild switch --flake ~/.config/nix
 
 format:
