@@ -18,9 +18,12 @@ with pkgs;
   glances
   glow
   gnumake
+	goose-cli
+	go_1_25
   jq
   lazydocker
   lazygit
+	llama-cpp
   macmon
   nano
   ncdu
