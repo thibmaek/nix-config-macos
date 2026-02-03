@@ -23,6 +23,7 @@ with pkgs;
   jq
   lazydocker
   lazygit
+	llama-cpp
   macmon
   nano
   ncdu
