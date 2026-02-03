@@ -1,4 +1,10 @@
-{ pkgs, user, hostPackages, hostPrograms, ... }:
+{
+  pkgs,
+  user,
+  hostPackages,
+  hostPrograms,
+  ...
+}:
 
 {
   imports = [

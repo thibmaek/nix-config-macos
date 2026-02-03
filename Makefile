@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := update
+.DEFAULT_GOAL := build
 
 # Build configuration for the current machine (auto-detect hostname)
 build:
@@ -17,4 +17,3 @@ format:
 clean:
 	nix-collect-garbage -d
 	nix store gc --verbose
-	nix-store optimise --verbose

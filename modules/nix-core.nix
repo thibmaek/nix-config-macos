@@ -18,7 +18,7 @@
     trusted-users = [ user ];
   };
 
-  # Auto upgrade nix package and the daemon service.
+  # Nix daemon is managed by Determinate Nix; we do not enable nix-darwin's Nix service.
   nix.enable = false;
   nix.package = pkgs.nix;
 }

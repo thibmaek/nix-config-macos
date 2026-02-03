@@ -18,6 +18,8 @@ with pkgs;
   glances
   glow
   gnumake
+  go_1_25
+  goose-cli
   jq
   lazydocker
   lazygit

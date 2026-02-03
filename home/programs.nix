@@ -65,9 +65,6 @@ in
       options = [ "--cmd=cd" ];
     };
 
-    # Locally init'd via zshrc
-    command-not-found.enable = false;
-
     eza = {
       enable = true;
       enableBashIntegration = true;
@@ -110,11 +107,6 @@ in
           compinit
         fi
 
-        HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/command-not-found/handler.sh"
-        if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
-          source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER";
-        fi
-
         zstyle ':omz:update' mode auto
 
         if [ -f $HOME/.zshrc.local ]; then
@@ -128,7 +120,6 @@ in
           "docker"
           "docker-compose"
           "git"
-          "command-not-found"
           "eza"
         ];
       };
