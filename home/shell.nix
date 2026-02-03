@@ -9,6 +9,10 @@
     # Directory navigation
     dl = "cd ~/Downloads";
     d = "cd ~/Desktop";
+    here = "open $(pwd)";
+
+    # Safe defaults
+    rm = "trash";
 
     # Editor shortcuts
     n = "nvim";

@@ -9,6 +9,7 @@ with pkgs;
   croc
   ctop
   curl
+  darwin.trash
   d2
   devenv
   duf
