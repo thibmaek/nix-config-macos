@@ -29,34 +29,57 @@
     }:
     let
       system = "aarch64-darwin";
-      hostname = "Thibaults-Mac-Studio";
       user = "thibmaek";
-      specialArgs = inputs // {
-        inherit user hostname;
-      };
+
+      # Helper function to create a Darwin system configuration
+      mkDarwinSystem =
+        hostDir:
+        nix-darwin.lib.darwinSystem {
+          inherit system;
+          modules = [
+            # Host-specific configuration (defines hostname)
+            hostDir
+
+            # Shared modules
+            ./modules/nix-core.nix
+            ./modules/pkgs.nix
+            ./modules/programs.nix
+            ./modules/system.nix
+            ./modules/homebrew.nix
+
+            # Host-specific modules (extend shared config)
+            "${hostDir}/system.nix"
+            "${hostDir}/homebrew.nix"
+
+            # Home Manager
+            home-manager.darwinModules.home-manager
+            (
+              { config, ... }:
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = inputs // {
+                  inherit user;
+                  hostname = config._module.args.hostname;
+                  hostPackages = "${hostDir}/home-manager/packages.nix";
+                  hostPrograms = "${hostDir}/home-manager/programs.nix";
+                };
+                home-manager.backupFileExtension = "bak";
+                home-manager.users.${user} = import ./home;
+              }
+            )
+          ];
+        };
     in
     {
-      darwinConfigurations."${hostname}" = nix-darwin.lib.darwinSystem {
-        inherit system specialArgs;
-        modules = [
-          ./modules/nix-core.nix
-          ./modules/pkgs.nix
-          ./modules/programs.nix
-          ./modules/system.nix
-
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = specialArgs;
-            home-manager.backupFileExtension = "bak";
-            home-manager.users.${user} = import ./home;
-          }
-        ];
+      # Machine configurations
+      darwinConfigurations = {
+        "Thib-Payflip" = mkDarwinSystem ./hosts/payflip;
+        "Thibaults-Mac-Studio" = mkDarwinSystem ./hosts/mac-studio;
       };
 
       # Expose the package set, including overlays, for convenience.
-      darwinPackages = self.darwinConfigurations."${hostname}".pkgs;
+      darwinPackages = self.darwinConfigurations."Thib-Payflip".pkgs;
 
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
     };

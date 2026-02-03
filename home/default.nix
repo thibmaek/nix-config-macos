@@ -1,21 +1,29 @@
-{ pkgs, user, ... }:
+{
+  pkgs,
+  user,
+  hostPackages,
+  hostPrograms,
+  ...
+}:
 
 {
   imports = [
+    # Shared programs across all machines
     ./programs.nix
+    ./shell.nix
+    # Host-specific programs (can extend or override shared config)
+    hostPrograms
   ];
 
   home = {
     username = "${user}";
     homeDirectory = "/Users/${user}";
     stateVersion = "24.11";
-    shellAliases = {
-      nix-update-all-pkgs = "nix-channel --update && darwin-rebuild switch --flake ~/.config/nix";
-      dl = "cd ~/Downloads";
-      d = "cd ~/Desktop";
-      n = "nvim";
-    };
-    packages = pkgs.callPackage ./packages.nix { };
+    packages =
+      # Shared packages across all machines
+      (pkgs.callPackage ./packages.nix { })
+      # Host-specific packages
+      ++ (pkgs.callPackage hostPackages { });
     sessionPath = [
       "/Users/${user}/.npm-global/bin" # You will need to set this by running `npm config set prefix ~/.npm-global`
       "/Users/${user}/.local/bin"

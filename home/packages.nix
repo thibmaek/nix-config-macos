@@ -4,13 +4,13 @@ with pkgs;
 [
   binwalk
   btop
-	cfonts
+  cfonts
   coreutils
   croc
   ctop
   curl
   d2
-	devenv
+  devenv
   duf
   ffmpeg
   fzf
@@ -18,8 +18,8 @@ with pkgs;
   glances
   glow
   gnumake
-	goose-cli
-	go_1_25
+  go_1_25
+  goose-cli
   jq
   lazydocker
   lazygit
@@ -30,7 +30,6 @@ with pkgs;
   neofetch
   netcat
   nmap
-  nodejs_24
   rsync
   screen
   shellcheck
