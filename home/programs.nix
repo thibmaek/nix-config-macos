@@ -30,7 +30,6 @@ in
       ];
     };
 
-    yt-dlp.enable = true;
     htop.enable = true;
 
     direnv = {

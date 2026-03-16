@@ -18,6 +18,10 @@
       upgrade = true;
     };
 
+    brews = [
+      "yt-dlp"
+    ];
+
     # GUI macOS applications shared across all machines
     casks = [
       "1password-cli"
