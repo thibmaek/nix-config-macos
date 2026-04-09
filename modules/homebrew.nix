@@ -38,6 +38,7 @@
       "font-fira-sans"
       "font-hack-nerd-font"
       "font-ibm-plex"
+      "font-inter"
       "font-jetbrains-mono"
       "font-monaspace"
       "font-permanent-marker"
