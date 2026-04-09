@@ -4,13 +4,13 @@ with pkgs;
 [
   binwalk
   btop
+  bun
   cfonts
   coreutils
   croc
   ctop
   curl
   darwin.trash
-  d2
   devenv
   duf
   ffmpeg
@@ -20,17 +20,20 @@ with pkgs;
   glow
   gnumake
   go_1_25
+  golangci-lint
   goose-cli
+  gopls
   jq
   lazydocker
   lazygit
-	llama-cpp
+  llama-cpp
   macmon
   nano
   ncdu
   neofetch
   netcat
   nmap
+  nodejs_24
   rsync
   screen
   shellcheck
