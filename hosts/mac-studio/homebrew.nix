@@ -10,7 +10,6 @@
     "elgato-stream-deck"
     "eqmac"
     "forklift"
-    "logi-options+"
     "meta"
     "orcaslicer"
     "synology-drive"
