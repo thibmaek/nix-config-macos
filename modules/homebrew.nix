@@ -47,7 +47,6 @@
       "home-assistant"
       "jordanbaird-ice"
       "keka"
-      "macwhisper"
       "mitmproxy"
       "notion"
       "obsidian"
