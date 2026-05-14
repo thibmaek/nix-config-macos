@@ -123,5 +123,10 @@ in
         ];
       };
     };
+
+		opencode = {
+			enable = true;
+			enableMcpIntegration = true;
+		};
   };
 }
