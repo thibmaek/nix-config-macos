@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lazyvim, pkgs, ... }:
 
 let
   # Ollama completions are not in nixpkgs, so we fetch them manually
@@ -10,8 +10,22 @@ let
   };
 in
 {
+  imports = [
+    lazyvim.homeManagerModules.default
+    ./programs/lazyvim/default.nix
+  ];
+
   programs = {
     git = import ./programs/git.nix;
+
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        navigate = true;
+      };
+    };
+
     starship = import ./programs/starship.nix;
 
     fzf = {
@@ -37,24 +51,6 @@ in
       enableBashIntegration = true;
       enableZshIntegration = true;
       nix-direnv.enable = true;
-    };
-
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      vimAlias = true;
-      extraConfig = ''
-        set tabstop=2
-        set shiftwidth=2
-        set softtabstop=0
-        set noexpandtab
-        set smartindent
-        set smarttab
-
-        call plug#begin()
-        Plug 'nanotee/zoxide.vim'
-        call plug#end()
-      '';
     };
 
     zoxide = {
@@ -124,9 +120,9 @@ in
       };
     };
 
-		opencode = {
-			enable = true;
-			enableMcpIntegration = true;
-		};
+    opencode = {
+      enable = true;
+      enableMcpIntegration = true;
+    };
   };
 }

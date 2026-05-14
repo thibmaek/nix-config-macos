@@ -17,6 +17,7 @@
       # to avoid problems caused by different versions of nixpkgs dependencies.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lazyvim.url = "github:pfassina/lazyvim-nix";
   };
 
   outputs =
@@ -25,6 +26,7 @@
       nix-darwin,
       nixpkgs,
       home-manager,
+      lazyvim,
       ...
     }:
     let

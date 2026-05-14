@@ -1,44 +1,32 @@
 {
   enable = true;
 
-  delta = {
-    enable = true;
-    options = {
-      navigate = true;
+  settings = {
+    user = {
+      email = "thibault@thibtop.be";
+      name = "Thibault Maekelbergh";
     };
-  };
 
-  userName = "Thibault Maekelbergh";
-  userEmail = "thibault@thibtop.be";
+    aliases = {
+      a = "add";
+      aa = "add .";
+      amend = "commit --amend --no-edit";
+      branches = "branch -a";
+      ch = "checkout";
+      prune-branches = "fetch origin --prune";
+      d = "diff";
+      discard = "checkout --";
+      ft = "!f() { git checkout -b feature/\"$1\" 2> /dev/null || git checkout feature/\"$1\"; }; f";
+      current-branch-name = "rev-parse --abbrev-ref HEAD";
+      l = "log";
+      pl = "pull";
+      publish = "!git push -u origin $(git current-branch-name)";
+      remotes = "remote -v";
+      s = "status";
+      tags = "tag -l";
+      update = "push origin HEAD";
+    };
 
-  aliases = {
-    a = "add";
-    aa = "add .";
-    amend = "commit --amend --no-edit";
-    branches = "branch -a";
-    ch = "checkout";
-    prune-branches = "fetch origin --prune";
-    d = "diff";
-    discard = "checkout --";
-    ft = "!f() { git checkout -b feature/\"$1\" 2> /dev/null || git checkout feature/\"$1\"; }; f";
-    current-branch-name = "rev-parse --abbrev-ref HEAD";
-    l = "log";
-    pl = "pull";
-    publish = "!git push -u origin $(git current-branch-name)";
-    remotes = "remote -v";
-    s = "status";
-    tags = "tag -l";
-    update = "push origin HEAD";
-  };
-
-  ignores = [ ".DS_Store" ];
-
-  signing = {
-    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFQi1NuIqPAFqzV5Nb3o9k0hjEIJUe0YERrQK1z4ywzm";
-    signByDefault = true;
-  };
-
-  extraConfig = {
     apply.whitespace = "fix";
     credential.helper = "osxkeychain";
     core = {
@@ -80,5 +68,12 @@
       format = "ssh";
       "ssh".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
     };
+  };
+
+  ignores = [ ".DS_Store" ];
+
+  signing = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFQi1NuIqPAFqzV5Nb3o9k0hjEIJUe0YERrQK1z4ywzm";
+    signByDefault = true;
   };
 }
