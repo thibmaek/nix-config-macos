@@ -3,6 +3,8 @@
 {
   # Shell aliases consolidated from home/default.nix and home/programs.nix
   home.shellAliases = {
+    # Temporary directory helper
+    temp = "cd $(mktemp -d ~/Downloads/tmp.XXXXXXXXXX)";
     # Nix operations
     nxi = "nix flake new -t github:nix-community/nix-direnv .";
 
