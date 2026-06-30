@@ -7,7 +7,7 @@
       name = "Thibault Maekelbergh";
     };
 
-    aliases = {
+    alias = {
       a = "add";
       aa = "add .";
       amend = "commit --amend --no-edit";
