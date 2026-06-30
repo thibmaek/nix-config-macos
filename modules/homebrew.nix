@@ -62,6 +62,7 @@
       "tailscale-app"
       "vlc"
       "whatsapp"
+      "zed"
     ];
   };
 }
