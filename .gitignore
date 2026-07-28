@@ -1,0 +1,17 @@
+# Nix build results
+result
+result-*
+*.drv
+
+# Nix shell artifacts
+.direnv
+.envrc.local
+
+# nix-direnv
+.direnv/
+
+# Flake lock backups (optional, uncomment if desired)
+# flake.lock.bak
+
+# macOS system files
+.DS_Store
