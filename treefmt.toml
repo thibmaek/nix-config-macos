@@ -1,4 +1,4 @@
 [formatter.nix]
-command = "nixfmt-rfc-style"
+command = "nixfmt"
 options = ["--width=100"]
 includes = ["*.nix"]

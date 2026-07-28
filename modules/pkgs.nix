@@ -19,7 +19,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     git
-    nixfmt-rfc-style
+    nixfmt
     nixfmt-tree
     nixd
     nil
