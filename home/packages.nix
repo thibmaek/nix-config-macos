@@ -30,7 +30,7 @@ with pkgs;
   macmon
   nano
   ncdu
-  neofetch
+  fastfetch
   netcat
   nmap
   nodejs_24
@@ -42,4 +42,5 @@ with pkgs;
   tmux
   tree
   wget
+  yq
 ]
