@@ -45,6 +45,7 @@
       "font-space-mono"
       "ghostty"
       "home-assistant"
+      "homebrew-app"
       "jordanbaird-ice"
       "keka"
       "mitmproxy"
