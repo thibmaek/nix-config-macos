@@ -17,3 +17,7 @@ format:
 clean:
 	nix-collect-garbage -d
 	nix store gc --verbose
+
+prune: clean
+	sudo nix-collect-garbage --delete-older-than 5d
+	sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +5
