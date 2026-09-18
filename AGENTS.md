@@ -195,6 +195,17 @@ When adding new configurations:
 4. Test with `make build`
 5. Deploy to test hosts
 
+## Code Style Guidelines
+
+### Package Lists
+
+All Homebrew package lists (`brews` and `casks`) must be **alphabetically sorted**. This applies to:
+- `modules/homebrew.nix`
+- `hosts/<host>/homebrew.nix`
+- Any other Nix files containing package lists
+
+When adding or removing packages, always maintain alphabetical order.
+
 ## References
 
 - [Nix Flakes](https://nixos.wiki/wiki/Flakes)
