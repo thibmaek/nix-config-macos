@@ -43,7 +43,8 @@ This configuration supports multiple machines with shared and machine-specific s
 3. Run one of the following commands:
    - Using Make (using autodetected hostname): `make build`
    - Auto-detect machine: `darwin-rebuild switch --flake ~/.config/nix#$(hostname)`
-   - Specific machine: `darwin-rebuild switch --flake ~/.config/nix#Thibaults-Mac-Studio
+   - Specific machine: `darwin-rebuild switch --flake ~/.config/nix#Thibaults-Mac-Studio`
+   - First install on a new machine (no darwin-rebuild yet): `sudo nix run nix-darwin/nix-darwin-26.05#darwin-rebuild -- switch --flake ~/.config/nix#<Hostname>`
 
 ## Building & Updating
 
