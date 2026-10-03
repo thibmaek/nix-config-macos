@@ -16,6 +16,7 @@ This configuration supports multiple machines with shared and machine-specific s
 │   │   ├── packages.nix  # Machine-specific Nix packages
 │   │   ├── programs.nix  # Machine-specific home-manager programs
 │   │   └── system.nix    # Machine-specific system settings
+│   ├── macbook-pro/      # MacBook Pro configuration (same structure)
 │   └── mac-studio/       # Mac Studio configuration
 │       ├── default.nix   # Hostname definition
 │       ├── homebrew.nix  # Machine-specific Homebrew packages

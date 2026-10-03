@@ -78,6 +78,7 @@
       darwinConfigurations = {
         "Thib-Payflip" = mkDarwinSystem ./hosts/payflip;
         "Thibaults-Mac-Studio" = mkDarwinSystem ./hosts/mac-studio;
+        "Thibtop-MacBook-Pro" = mkDarwinSystem ./hosts/macbook-pro;
       };
 
       # Expose the package set, including overlays, for convenience.
