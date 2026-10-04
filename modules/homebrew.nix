@@ -19,6 +19,7 @@
     };
 
     brews = [
+      "anomalyco/tap/opencode-v2"
       "yt-dlp"
     ];
 
@@ -27,17 +28,16 @@
       "1password-cli"
       "1password"
       "bruno"
-      "cursor"
       "daisydisk"
       "fantastical"
       "figma"
-      "firefox"
       "font-fira-code-nerd-font"
       "font-fira-code"
       "font-fira-mono"
       "font-fira-sans"
       "font-hack-nerd-font"
-      "font-ibm-plex"
+      "font-ibm-plex-sans"
+      "font-ibm-plex-mono"
       "font-inter"
       "font-jetbrains-mono"
       "font-monaspace"
@@ -50,6 +50,7 @@
       "mitmproxy"
       "notion"
       "obsidian"
+      "openlogi"
       "plexamp"
       "qflipper"
       "raycast"
@@ -64,6 +65,7 @@
       "vlc"
       "whatsapp"
       "zed"
+      "zen"
     ];
   };
 }
