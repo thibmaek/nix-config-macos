@@ -17,6 +17,8 @@ in
 
   programs = {
     git = import ./programs/git.nix;
+    zed-editor = import ./programs/zed.nix;
+    ghostty = import ./programs/ghostty.nix;
 
     delta = {
       enable = true;
