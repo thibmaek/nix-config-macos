@@ -51,7 +51,7 @@
 
       NSGlobalDomain = {
         "com.apple.swipescrolldirection" = false;
-        "com.apple.trackpad.scaling" = 2.2;
+        "com.apple.trackpad.scaling" = 1.2;
         AppleEnableMouseSwipeNavigateWithScrolls = false;
         AppleEnableSwipeNavigateWithScrolls = false;
         AppleInterfaceStyleSwitchesAutomatically = true;
