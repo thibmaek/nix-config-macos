@@ -5,7 +5,7 @@
 #  Shared macOS system configuration across all machines
 #
 #  All the configuration options are documented here:
-#    https://daiderd.com/nix-darwin/manual/index.html#sec-options
+#    https://nix-darwin.github.io/nix-darwin/manual/
 #
 ###################################################################################
 {
@@ -31,27 +31,51 @@
     '';
 
     defaults = {
-      menuExtraClock.Show24Hour = true;
-
-      smb.NetBIOSName = hostname;
-
-      NSGlobalDomain = {
-        AppleEnableMouseSwipeNavigateWithScrolls = false;
-        AppleEnableSwipeNavigateWithScrolls = false;
-        AppleInterfaceStyleSwitchesAutomatically = true;
-        ApplePressAndHoldEnabled = false;
-        NSTableViewDefaultSizeMode = 1;
-        NSNavPanelExpandedStateForSaveMode = true;
-        NSNavPanelExpandedStateForSaveMode2 = true;
-        PMPrintingExpandedStateForPrint = true;
-        PMPrintingExpandedStateForPrint2 = true;
+      controlcenter = {
+        BatteryShowPercentage = true;
       };
 
       dock = {
         show-recents = false;
       };
+
+      finder = {
+        NewWindowTarget = "Other";
+        NewWindowTargetPath = "file:///Users/${user}/Downloads";
+        ShowExternalHardDrivesOnDesktop = true;
+        ShowHardDrivesOnDesktop = false;
+        ShowRemovableMediaOnDesktop = true;
+      };
+
+      menuExtraClock.Show24Hour = true;
+
+      NSGlobalDomain = {
+        "com.apple.swipescrolldirection" = false;
+        "com.apple.trackpad.scaling" = 2.2;
+        AppleEnableMouseSwipeNavigateWithScrolls = false;
+        AppleEnableSwipeNavigateWithScrolls = false;
+        AppleInterfaceStyleSwitchesAutomatically = true;
+        ApplePressAndHoldEnabled = false;
+        NSAutomaticQuoteSubstitutionEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
+        NSNavPanelExpandedStateForSaveMode = true;
+        NSNavPanelExpandedStateForSaveMode2 = true;
+        NSTableViewDefaultSizeMode = 1;
+        PMPrintingExpandedStateForPrint = true;
+        PMPrintingExpandedStateForPrint2 = true;
+      };
+
+      smb.NetBIOSName = hostname;
+
+      trackpad = {
+        Clicking = true;
+      };
     };
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
+
+  time = {
+    timeZone = "Europe/Brussels";
+  };
 }

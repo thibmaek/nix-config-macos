@@ -2,8 +2,8 @@
   programs = {
     ghostty = {
       settings = {
-        window-width = 140;
-        window-height = 40;
+        window-width = 120;
+        window-height = 30;
       };
     };
   };

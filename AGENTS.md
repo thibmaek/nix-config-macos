@@ -7,7 +7,7 @@ This file provides guidance for agentic coding tools (Claude Code, Cursor, Mistr
 This is a Nix configuration repository for managing system and home manager configurations across multiple macOS hosts using Nix Flakes.
 
 ### Key Features
-- **Multi-host configuration**: Separate configurations for `mac-studio` and `payflip` hosts
+- **Multi-host configuration**: Separate configurations for `mac-studio`, `macbook-pro` and `payflip` hosts
 - **Nix Flakes**: Uses declarative, reproducible Nix configurations
 - **Home Manager**: Manages user-level configurations
 - **Homebrew**: Manages macOS packages via Homebrew

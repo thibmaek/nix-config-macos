@@ -5,8 +5,8 @@ let
   zsh-ollama-completions = pkgs.fetchFromGitHub {
     owner = "ocodo";
     repo = "ollama_zsh_completion";
-    rev = "main";
-    sha256 = "sha256-HjKVLDmJyCXwmAmYaHAuCcy8rC9274e5UaIt4acnq4Q=";
+    rev = "edc7bd20a6f3ecea5aa9b651a7f20e2fd2a2f595";
+    sha256 = "sha256-uuIkrWmZqg3pbIcxI/8OLUvMKdc9PJtmWg+2nxGDsRo=";
   };
 in
 {
@@ -17,6 +17,8 @@ in
 
   programs = {
     git = import ./programs/git.nix;
+    zed-editor = import ./programs/zed.nix;
+    ghostty = import ./programs/ghostty.nix;
 
     delta = {
       enable = true;

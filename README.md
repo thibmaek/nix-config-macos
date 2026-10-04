@@ -16,6 +16,7 @@ This configuration supports multiple machines with shared and machine-specific s
 │   │   ├── packages.nix  # Machine-specific Nix packages
 │   │   ├── programs.nix  # Machine-specific home-manager programs
 │   │   └── system.nix    # Machine-specific system settings
+│   ├── macbook-pro/      # MacBook Pro configuration (same structure)
 │   └── mac-studio/       # Mac Studio configuration
 │       ├── default.nix   # Hostname definition
 │       ├── homebrew.nix  # Machine-specific Homebrew packages
@@ -37,12 +38,19 @@ This configuration supports multiple machines with shared and machine-specific s
 
 ## Installing
 
-1. Clone this to `~/.config/nix`
-2. Install Nix (using [det-sys](https://docs.determinate.systems/determinate-nix/)'s Nix)
-3. Run one of the following commands:
+1. Install Nix (using [det-sys](https://docs.determinate.systems/determinate-nix/)'s Nix)
+2. Install Homebrew — **required before the first rebuild**: nix-darwin manages Homebrew packages (brews/casks) but does **not** install Homebrew itself:
+   ```sh
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+   eval "$(/opt/homebrew/bin/brew shellenv)"
+   ```
+3. Clone this to `~/.config/nix`
+4. Run one of the following commands:
    - Using Make (using autodetected hostname): `make build`
    - Auto-detect machine: `darwin-rebuild switch --flake ~/.config/nix#$(hostname)`
-   - Specific machine: `darwin-rebuild switch --flake ~/.config/nix#Thibaults-Mac-Studio
+   - Specific machine: `darwin-rebuild switch --flake ~/.config/nix#Thibaults-Mac-Studio`
+   - First install on a new machine (no darwin-rebuild yet): `sudo nix run nix-darwin/nix-darwin-26.05#darwin-rebuild -- switch --flake ~/.config/nix#<Hostname>`
 
 ## Building & Updating
 
