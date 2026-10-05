@@ -2,6 +2,7 @@
   enable = true;
   package = null;
   extensions = [
+    "docker"
     "make"
     "nix"
     "toml"
