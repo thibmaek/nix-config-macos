@@ -40,17 +40,19 @@
       };
 
       finder = {
+        _FXShowPosixPathInTitle = true;
         NewWindowTarget = "Other";
         NewWindowTargetPath = "file:///Users/${user}/Downloads";
         ShowExternalHardDrivesOnDesktop = true;
         ShowHardDrivesOnDesktop = false;
         ShowRemovableMediaOnDesktop = true;
+        ShowStatusBar = true;
       };
 
       menuExtraClock.Show24Hour = true;
 
       NSGlobalDomain = {
-        "com.apple.swipescrolldirection" = false;
+        "com.apple.swipescrolldirection" = true;
         "com.apple.trackpad.scaling" = 1.2;
         AppleEnableMouseSwipeNavigateWithScrolls = false;
         AppleEnableSwipeNavigateWithScrolls = false;
