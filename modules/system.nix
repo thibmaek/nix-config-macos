@@ -40,7 +40,7 @@
       };
 
       finder = {
-        _FXShowPosixPathInTitle = true;
+        FXDefaultSearchScope = "SCcf";
         NewWindowTarget = "Other";
         NewWindowTargetPath = "file:///Users/${user}/Downloads";
         ShowExternalHardDrivesOnDesktop = true;
