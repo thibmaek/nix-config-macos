@@ -2,6 +2,8 @@
   enable = true;
   package = null;
   extensions = [
+    "catppuccin-icons"
+    "charmed-icons"
     "docker"
     "make"
     "nix"

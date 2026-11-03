@@ -33,7 +33,7 @@ with pkgs;
   fastfetch
   netcat
   nmap
-  nodejs_24
+  nodejs_latest
   rsync
   screen
   shellcheck
